@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Image Uploading</title>
+  <title>Image Data Table</title>
 </head>
 <body>
-  <h1>Image Uploading</h1>
-  <table>
+  <h1>Image Data Table</h1>
+
+  <table id="imageTable">
     <thead>
       <tr>
         <th>Image</th>
@@ -15,10 +16,8 @@
   </table>
 
   <script>
-   const CORS_PROXY_URL = "https://cors-anywhere.herokuapp.com/"; // CORS proxy URL
-    const endpointUrl = CORS_PROXY_URL + "https://imgbackend.onrender.com";
-
-    fetch(endpointUrl)
+    // Fetch data from the API and populate the table
+    fetch('https://imgbackend.onrender.com')
       .then(response => response.json())
       .then(data => {
         const imageTableBody = document.getElementById("imageTableBody");
@@ -36,7 +35,7 @@
           imageTableBody.appendChild(row);
         });
       })
-      .catch(error => console.log(error));
+      .catch(error => console.error('Error fetching data:', error));
   </script>
 </body>
 </html>

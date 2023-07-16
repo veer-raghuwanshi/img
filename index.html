@@ -16,8 +16,11 @@
   </table>
 
   <script>
-    // Fetch data from the API and populate the table
-    fetch('https://imgbackend.onrender.com')
+    const CORS_PROXY_URL = "https://cors-anywhere.herokuapp.com/";
+    const API_URL = CORS_PROXY_URL + "https://imgbackend.onrender.com";
+
+    // Fetch data from the API via CORS proxy and populate the table
+    fetch(API_URL)
       .then(response => response.json())
       .then(data => {
         const imageTableBody = document.getElementById("imageTableBody");

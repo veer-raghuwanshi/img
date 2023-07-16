@@ -32,9 +32,9 @@
       const imageTableBody = document.getElementById("imageTableBody");
 
       jsonData.forEach((image, index) => {
-        const row = document.createElement("tr");
-        const cell = document.createElement("td");
-        const img = document.createElement("img");
+        var row = document.createElement("tr");
+        var cell = document.createElement("td");
+        var img = document.createElement("img");
         img.src = image;
         img.alt = `Image ${index + 1}`;
         img.width = 300;

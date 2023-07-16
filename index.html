@@ -15,7 +15,8 @@
   </table>
 
   <script>
-    const endpointUrl = "https://imgbackend.onrender.com/";
+   const CORS_PROXY_URL = "https://cors-anywhere.herokuapp.com/"; // CORS proxy URL
+    const endpointUrl = CORS_PROXY_URL + "https://imgbackend.onrender.com";
 
     fetch(endpointUrl)
       .then(response => response.json())

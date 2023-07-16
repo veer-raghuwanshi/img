@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Uploading</title>
+</head>
+<body>
+  <h1>Image Uploading</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody id="imageTableBody"></tbody>
+  </table>
+
+  <script>
+    const CORS_PROXY_URL = "https://cors-anywhere.herokuapp.com/"; // CORS proxy URL
+    const endpointUrl = CORS_PROXY_URL + "https://testingimg.onrender.com";
+
+    fetch(endpointUrl)
+      .then(response => response.json())
+      .then(data => {
+        const imageTableBody = document.getElementById("imageTableBody");
+
+        data.forEach((image, index) => {
+          const row = document.createElement("tr");
+          const cell = document.createElement("td");
+          const img = document.createElement("img");
+          img.src = image;
+          img.alt = `Image ${index + 1}`;
+          img.width = 300;
+
+          cell.appendChild(img);
+          row.appendChild(cell);
+          imageTableBody.appendChild(row);
+        });
+      })
+      .catch(error => console.log(error));
+  </script>
+</body>
+</html>
